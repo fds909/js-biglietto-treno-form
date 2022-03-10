@@ -46,6 +46,10 @@ h1 {
     text-align: center;
 }
 
+.top-input input:focus, .top-input select:focus {
+    background-color: #b91450;
+}
+
 .label-box {
     text-align: center;
     margin: 0 15px;
@@ -71,4 +75,37 @@ button {
 button:hover {
     background-color: #6b6b6b;
     color: white;
+}
+
+/* Your ticket */
+#your-ticket {
+    margin-bottom: 50px;
+}
+
+#your-ticket h1 {
+    text-align: center;
+}
+
+.your-ticket-content {
+    background-color: white;
+    padding: 15px;
+}
+
+.your-ticket-content h5 {
+    font-size: 15px;
+    font-weight: 900;
+    color: black;
+}
+
+.nome-passeggero {
+    background-color: #808080;
+    padding: 15px;
+    font-weight: 900;
+    color: black;
+}
+
+.detail-name {
+    font-weight: 900;
+    color: black;
+    margin-bottom: 30px;
 }

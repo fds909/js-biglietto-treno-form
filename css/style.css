@@ -1,0 +1,74 @@
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Commons */
+body {
+    font-family: 'Lato', sans-serif;
+    background-color: #b91450;
+}
+
+.ms_container {
+    margin: 0 auto;
+    width: 80%;
+}
+
+h1 {
+    color: white;
+    text-align: center;
+}
+
+/* MAIN */
+
+/* Input */
+.input-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 25px 0;
+    margin: 25px 0;
+    background-color: white;
+    border-radius: 16px;
+    border: 1px solid #bb5a7e;
+}
+
+.top-input {
+    margin-bottom: 60px;
+}
+
+.top-input input, .top-input select {
+    border: 2px solid #b91450;
+    border-radius: 3px;
+    height: 30px;
+    text-align: center;
+}
+
+.label-box {
+    text-align: center;
+    margin: 0 15px;
+}
+
+.label {
+    font-weight: bold;
+    color: #b91450;
+    margin-bottom: 20px;
+}
+
+/* Buttons */
+button {
+    font-size: 16px;
+    font-weight: bold;
+    color: #b91450;
+    background-color: #cccccc;
+    padding: 5px;
+    margin: 0 10px;
+    border-radius: 5px;
+}
+
+button:hover {
+    background-color: #6b6b6b;
+    color: white;
+}

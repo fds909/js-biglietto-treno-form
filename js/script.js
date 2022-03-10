@@ -26,46 +26,50 @@ let generate = document.getElementById("generate");
 
 generate.addEventListener('click',
     function() {
-        yourTicket.classList.remove('d-none');
+        if ((nameSurname.value != "") && (kilometers.value > 0) && (ageRange.value != "")) {
+            yourTicket.classList.remove('d-none');
 
-        // visualizza nome
-        document.getElementById("displayName").innerHTML = nameSurname.value;
-        
-        // visualizza offerta in base a fascia di età
-        let offer = '';
-        
-        switch (ageRange.value) {
-            case 'minorenne':
-                offer = 'Biglietto Ridotto (-20%)';
-                break;
-            case 'maggiorenne':
-                offer = 'Biglietto Standard';
-                break;
-            case 'over65':
-                offer = 'Biglietto Ridotto (-40%)'
-                break;
+            // visualizza nome
+            document.getElementById("displayName").innerHTML = nameSurname.value;
+            
+            // visualizza offerta in base a fascia di età
+            let offer = '';
+            
+            switch (ageRange.value) {
+                case 'minorenne':
+                    offer = 'Biglietto Ridotto (-20%)';
+                    break;
+                case 'maggiorenne':
+                    offer = 'Biglietto Standard';
+                    break;
+                case 'over65':
+                    offer = 'Biglietto Ridotto (-40%)'
+                    break;
+            }
+
+            document.getElementById("offer").innerHTML = offer;
+
+            // genera e visualizza carrozza casuale
+            document.getElementById("carrozza").innerHTML = Math.floor(Math.random() * 9 + 1);
+
+            // genera e visualizza codice CP casuale
+            document.getElementById("CPCode").innerHTML = '9' + Math.floor(Math.random() * 9999);
+
+            //calcolo costo biglietto
+            let ticketPrice = 0.21 * kilometers.value;
+            console.log(ticketPrice);
+            // applicazione eventuale sconto
+            if (ageRange.value == 'minorenne') {
+                ticketPrice *= 0.8;
+            } else if (ageRange.value == 'over65') {
+                ticketPrice *= 0.6;
+            }
+
+            // visualizzazione prezzo
+            document.getElementById('ticket-cost').innerHTML = ticketPrice.toFixed(2) + '€';
+        } else {
+            alert("Ogni campo deve contenere valori validi!");
         }
-
-        document.getElementById("offer").innerHTML = offer;
-
-        // genera e visualizza carrozza casuale
-        document.getElementById("carrozza").innerHTML = Math.floor(Math.random() * 9 + 1);
-
-        // genera e visualizza codice CP casuale
-        document.getElementById("CPCode").innerHTML = '9' + Math.floor(Math.random() * 9999);
-
-        //calcolo costo biglietto
-        let ticketPrice = 0.21 * kilometers.value;
-        console.log(ticketPrice);
-        // applicazione eventuale sconto
-        if (ageRange.value == 'minorenne') {
-            ticketPrice *= 0.8;
-        } else if (ageRange.value == 'over65') {
-            ticketPrice *= 0.6;
-        }
-
-        // visualizzazione prezzo
-        document.getElementById('ticket-cost').innerHTML = ticketPrice.toFixed(2) + '€';
 
     }
 )
@@ -75,6 +79,10 @@ let cancel = document.getElementById("cancel");
 
 cancel.addEventListener('click',
     function() {
-        yourTicket.classList.add('d-none');
+        if ( !(yourTicket.classList.contains('d-none')) ) {
+            yourTicket.classList.add('d-none');
+            document.getElementById("nameSurname").value = "";
+            document.getElementById("kilometers").value = 0;
+        }
     }
 );

@@ -17,8 +17,11 @@ body {
 }
 
 h1 {
+    font-size: 36px;
     color: white;
     text-align: center;
+    font-weight: 900;
+    margin-top: 20px;
 }
 
 /* MAIN */
@@ -80,10 +83,6 @@ button:hover {
 /* Your ticket */
 #your-ticket {
     margin-bottom: 50px;
-}
-
-#your-ticket h1 {
-    text-align: center;
 }
 
 .your-ticket-content {
